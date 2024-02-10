@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 
 const Landing = () => {
   return (
-    <section className="min-h-[85vh] flex justify-center items-center w-full">
+    <section className="min-h-[60vh] flex justify-center items-center w-full">
       <div className="flex flex-col gap-5">
         <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-7xl/none text-center">
           Welcome to NyayHelp
@@ -14,7 +14,7 @@ const Landing = () => {
 
         <div className="w-full flex justify-center">
           <Link href="/login">
-            <Button>Explore Blogs</Button>
+            <Button size={"lg"}>Explore Blogs</Button>
           </Link>
         </div>
       </div>

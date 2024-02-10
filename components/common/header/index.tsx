@@ -32,8 +32,8 @@ const Header = () => {
       </Link>
 
       <div className="flex gap-8 items-center">
-        <NavItem href="/contact">Forum</NavItem>
-        <NavItem href="/blog">Blog</NavItem>
+        <NavItem href="/forum">Forum</NavItem>
+        <NavItem href="/blogs">Blogs</NavItem>
         <NavItem href="/about">About</NavItem>
         <NavItem href="/login">
           <Button>Login</Button>
