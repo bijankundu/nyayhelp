@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MessageSquareText, ThumbsUp } from "lucide-react";
 
 const ForumCard = () => {
   return (
@@ -13,7 +14,16 @@ const ForumCard = () => {
         <Link className="text-blue-500 hover:underline" href="#">
           Read More
         </Link>
-        <span className="text-gray-600">3 Answers</span>
+        <div className="flex gap-5">
+          <div className="text-gray-600 flex gap-1 text-sm items-center">
+            <ThumbsUp size={"18px"} />
+            <span>3</span>
+          </div>
+          <div className="text-gray-600 flex gap-1 text-sm items-center">
+            <MessageSquareText size={"18px"} />
+            <span>13</span>
+          </div>
+        </div>
       </div>
     </div>
   );

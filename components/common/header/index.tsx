@@ -11,7 +11,10 @@ const NavItem = ({
   children: React.ReactNode;
 }) => {
   return (
-    <Link href={href} className="text-md font-medium">
+    <Link
+      href={href}
+      className="text-md font-medium text-gray-900 hover:text-gray-600"
+    >
       {children}
     </Link>
   );
@@ -19,7 +22,7 @@ const NavItem = ({
 
 const Header = () => {
   return (
-    <nav className="flex gap-10 md:gap-6 justify-between items-center py-10 px-10 h-[8vh] bg-white fixed top-0 z-50 w-full border-b-[1px]">
+    <nav className="flex gap-10 md:gap-6 justify-between items-center py-10 px-10 h-[8vh] fixed top-0 z-50 w-full backdrop-blur-xl bg-white/60 drop-shadow-lg">
       <Link href="/" className="flex items-center space-x-2">
         <Image
           src={
@@ -31,7 +34,7 @@ const Header = () => {
         />
       </Link>
 
-      <div className="flex gap-8 items-center">
+      <div className="flex gap-8 items-center ">
         <NavItem href="/forum">Forum</NavItem>
         <NavItem href="/blogs">Blogs</NavItem>
         <NavItem href="/about">About</NavItem>

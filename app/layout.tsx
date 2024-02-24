@@ -28,7 +28,9 @@ export default function RootLayout({
         className={cn(inter.className, "relative flex flex-col min-h-screen")}
       >
         <Header />
-        <main className="md:mt-[10vh] w-full">{children}</main>
+        <main className="md:mt-[9.5vh] bg-gray-[#f1f1f1] w-full">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

@@ -20,7 +20,7 @@ const BlogCard = () => {
             <Image
               placeholder="blur"
               blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                shimmer(700, 475)
+                shimmer(350, 250)
               )}`}
               src="https://via.assets.so/img.jpg?w=350&h=250"
               alt="blog"
@@ -30,7 +30,7 @@ const BlogCard = () => {
           </div>
         </div>
 
-        <CardTitle>
+        <CardTitle className="tracking-normal leading-normal">
           Case Analysis: Murli S. Deora v. Union of India, (2001) | Health
           Hazards Linked to Cigarette Smoking
         </CardTitle>
@@ -41,9 +41,11 @@ const BlogCard = () => {
         </CardDescription>
       </CardHeader>
       <CardFooter className="flex justify-between">
-        <Button variant={"link"} className="p-0">
-          Read More
-        </Button>
+        <Link href={`/blogs/test-slug`}>
+          <Button variant={"link"} className="p-0">
+            Read More
+          </Button>
+        </Link>
         <p className="text-gray-400 text-sm">{dayjs().format("MMM D, YYYY")}</p>
       </CardFooter>
     </Card>
