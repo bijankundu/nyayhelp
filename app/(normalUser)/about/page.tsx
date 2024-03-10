@@ -10,26 +10,26 @@ const Page = () => {
           </h1>
 
           <p>
-            (let's not try to) boil the ocean (here/there/everywhere) value prop
-            we don't need to boil the ocean here push back, or the right info at
-            the right time to the right people, or 4-blocker, yet thought
-            shower. Talk to the slides anti-pattern. Killing it weâ€™re all in
-            this together, even if our businesses function differently i also
-            believe it's important for every member to be involved and invested
-            in our company and this is one way to do so closer to the metal, up
-            the flagpole bazooka that run it past the boss jump right in and
-            banzai attack will they won't they its all greek to me unless they
-            bother until the end of time maybe vis a vis too many cooks over the
-            line. Are there any leftovers in the kitchen? lean into that problem
-            let's put a pin in that. This is not a video game, this is a
-            meeting! green technology and climate change . Take five, punch the
-            tree, and come back in here with a clear head flesh that out. Screw
-            the pooch core competencies, nor sacred cow. This is not the hill i
-            want to die on increase the pipelines. Make sure to include in your
-            wheelhouse churning anomalies, nor this proposal is a win-win
-            situation which will cause a stellar paradigm shift, and produce a
-            multi-fold increase in deliverables that is a good problem to have,
-            for turd polishing.
+            (let&apos;s not try to) boil the ocean (here/there/everywhere) value
+            prop we don&apos;t need to boil the ocean here push back, or the
+            right info at the right time to the right people, or 4-blocker, yet
+            thought shower. Talk to the slides anti-pattern. Killing it weâ€™re
+            all in this together, even if our businesses function differently i
+            also believe it&apos;s important for every member to be involved and
+            invested in our company and this is one way to do so closer to the
+            metal, up the flagpole bazooka that run it past the boss jump right
+            in and banzai attack will they won&apos;t they its all greek to me
+            unless they bother until the end of time maybe vis a vis too many
+            cooks over the line. Are there any leftovers in the kitchen? lean
+            into that problem let&apos;s put a pin in that. This is not a video
+            game, this is a meeting! green technology and climate change . Take
+            five, punch the tree, and come back in here with a clear head flesh
+            that out. Screw the pooch core competencies, nor sacred cow. This is
+            not the hill i want to die on increase the pipelines. Make sure to
+            include in your wheelhouse churning anomalies, nor this proposal is
+            a win-win situation which will cause a stellar paradigm shift, and
+            produce a multi-fold increase in deliverables that is a good problem
+            to have, for turd polishing.
           </p>
         </div>
         <div className="flex flex-col gap-5">
@@ -38,7 +38,7 @@ const Page = () => {
           </h1>
           <p>
             We need more images of groups of people having non-specific types of
-            fun I want you to take it to the next level we don't need a
+            fun I want you to take it to the next level we don&apos;t need a
             contract, do we can you punch up the fun level on these icons you
             might wanna give it another shot, for can you make it more
             infographic-y. I need this to work in internet explorer! low
@@ -57,15 +57,16 @@ const Page = () => {
             making it a bit less blah make it look like Apple we are your
             relatives, yet we need to make the new version clean and sexy. Try
             making it a bit less blah you might wanna give it another shot, or
-            we have big contacts we will promote you. Use a kpop logo that's not
-            a kpop logo! ugh i was wondering if my cat could be placed over the
-            logo in the flyer, so make it sexy. I love it, but can you invert
-            all colors? other agencies charge much lesser, yet it's great, can
-            you add a beard though . We don't need a backup, it never goes down!
-            can you make the blue bluer?, for could you move it a tad to the
-            left there is too much white space concept is bang on, but can we
-            look at a better execution, and this is just a 5 minutes job.iendis
-            deserunt earum laboriosam asperiores assumenda modi.
+            we have big contacts we will promote you. Use a kpop logo
+            that&apos;s not a kpop logo! ugh i was wondering if my cat could be
+            placed over the logo in the flyer, so make it sexy. I love it, but
+            can you invert all colors? other agencies charge much lesser, yet
+            it&apos;s great, can you add a beard though . We don&apos;t need a
+            backup, it never goes down! can you make the blue bluer?, for could
+            you move it a tad to the left there is too much white space concept
+            is bang on, but can we look at a better execution, and this is just
+            a 5 minutes job.iendis deserunt earum laboriosam asperiores
+            assumenda modi.
           </p>
         </div>
       </div>
