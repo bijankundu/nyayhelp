@@ -20,7 +20,13 @@ const NavItem = ({
   );
 };
 
-const Header = () => {
+interface IHeaderProps {
+  isAdmin?: boolean;
+}
+
+const Header = (
+  { isAdmin = false }: Readonly<IHeaderProps> = { isAdmin: false }
+) => {
   return (
     <nav className="flex gap-10 md:gap-6 justify-between items-center py-10 px-10 h-[8vh] fixed top-0 z-50 w-full backdrop-blur-xl bg-white/60 drop-shadow-lg">
       <Link href="/" className="flex items-center space-x-2">
@@ -34,14 +40,16 @@ const Header = () => {
         />
       </Link>
 
-      <div className="flex gap-8 items-center ">
-        <NavItem href="/forum">Forum</NavItem>
-        <NavItem href="/blogs">Blogs</NavItem>
-        <NavItem href="/about">About</NavItem>
-        <NavItem href="/login">
-          <Button>Login</Button>
-        </NavItem>
-      </div>
+      {!isAdmin && (
+        <div className="flex gap-8 items-center ">
+          <NavItem href="/forum">Forum</NavItem>
+          <NavItem href="/blogs">Blogs</NavItem>
+          <NavItem href="/about">About</NavItem>
+          <NavItem href="/login">
+            <Button>Login</Button>
+          </NavItem>
+        </div>
+      )}
     </nav>
   );
 };
