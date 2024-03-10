@@ -2,10 +2,9 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import AnswerBox from "@/components/forum/answerBox";
+import AnswerContainer from "@/components/forum/answerContainer";
 
 import { formatDate } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 
 const Page = ({ params }: { params: { discussionSlug: string } }) => {
   const { discussionSlug } = params;
@@ -13,7 +12,7 @@ const Page = ({ params }: { params: { discussionSlug: string } }) => {
   return (
     <div className="py-10 flex flex-col items-center">
       <div className="max-w-[60vw] w-[55vw] flex flex-col gap-4">
-        <section className="flex gap-5 pb-5">
+        <section className="flex gap-5 pb-5 border-b">
           <div className="w-4/12 flex flex-col items-center justify-center">
             <div className="flex flex-col gap-4">
               <div className="cursor-pointer rounded-full border border-gray-500 h-10 w-10 flex items-center justify-center text-gray-500 bg-white hover:text-primary hover:border-primary hover:bg-blue-100">
@@ -83,11 +82,10 @@ const Page = ({ params }: { params: { discussionSlug: string } }) => {
             <h5 className="scroll-m-20 text-xl font-medium tracking-tight lg:text-xl text-left w-full">
               3 Answers
             </h5>
-            <Button size={"sm"}>Post your answer</Button>
           </div>
-          <AnswerBox />
-          <AnswerBox />
-          <AnswerBox />
+          <AnswerContainer />
+          <AnswerContainer />
+          <AnswerContainer />
         </section>
       </div>
     </div>

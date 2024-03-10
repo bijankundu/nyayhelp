@@ -1,9 +1,8 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
 
-import { Button } from "../ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import CommentBox from "./commentBox";
-import AddComment from "./addComment";
+import CommentContainer from "./commentContainer";
+import AddCommentContainer from "./addCommentContainer";
 
 import { formatDate } from "@/lib/utils";
 
@@ -57,11 +56,11 @@ const AnswerBox = () => {
           </div>
         </div>
         <div className="flex flex-col border-t my-5">
-          <CommentBox />
-          <CommentBox />
-          <CommentBox />
+          <CommentContainer />
+          <CommentContainer />
+          <CommentContainer />
           <div className="flex pt-4">
-            <AddComment />
+            <AddCommentContainer />
           </div>
         </div>
       </div>
