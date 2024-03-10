@@ -1,7 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["cdn.pixelbin.io", "via.assets.so"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.pixelbin.io",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "via.assets.so",
+        port: "",
+        pathname: "/**",
+      },
+    ],
   },
 };
 

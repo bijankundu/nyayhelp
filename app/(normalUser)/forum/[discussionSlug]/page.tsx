@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -5,6 +6,13 @@ import { Badge } from "@/components/ui/badge";
 import AnswerContainer from "@/components/forum/answerContainer";
 
 import { formatDate } from "@/lib/utils";
+
+const AddAnswerContainer = dynamic(
+  () => import("@/components/forum/addAnswerContainer"),
+  {
+    ssr: false,
+  }
+);
 
 const Page = ({ params }: { params: { discussionSlug: string } }) => {
   const { discussionSlug } = params;
@@ -86,6 +94,7 @@ const Page = ({ params }: { params: { discussionSlug: string } }) => {
           <AnswerContainer />
           <AnswerContainer />
           <AnswerContainer />
+          <AddAnswerContainer />
         </section>
       </div>
     </div>
