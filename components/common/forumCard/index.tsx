@@ -1,21 +1,31 @@
+import React from "react";
 import Link from "next/link";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { MessageSquareText, ThumbsUp, ThumbsDown } from "lucide-react";
 
+import { getQuestionById } from "@/api/forums";
+import { Forum } from "@/types/forum";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 dayjs.extend(relativeTime);
 
-const ForumCard = () => {
+interface ForumCardProps {
+  cardData: Forum;
+}
+
+const ForumCard: React.FC<ForumCardProps> = ({ cardData }) => {
+  const { id, title, description, createdOn } = cardData;
+
   return (
-    <Link href={`/forum/test-slug`}>
+    <Link href={`/forum/${id}`}>
       <div className="border rounded-lg p-4">
-        <h2 className="text-xl font-bold">What is contract law?</h2>
+        <h2 className="text-xl font-bold">{title}</h2>
         <p className="text-gray-600">
-          Contract law is a body of law that governs, enforces, and interprets
-          agreements related to an exchange of goods, services, properties, or
-          money.
+          {description.length > 100
+            ? `${description.substring(0, 100)}...`
+            : description}
         </p>
         <div className="flex items-center justify-between mt-4">
           <div className="flex gap-2 items-center text-sm text-gray-500">
@@ -23,7 +33,7 @@ const ForumCard = () => {
               <AvatarImage src="https://i.pravatar.cc/300" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
-            <p>{dayjs("2024-02-24T16:25:12.221Z").fromNow()}</p>
+            <p>{dayjs(createdOn).fromNow()}</p>
           </div>
           <div className="flex gap-5">
             <div className="text-gray-600 flex gap-1 text-sm items-center">

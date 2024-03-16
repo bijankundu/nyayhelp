@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -11,44 +12,55 @@ import { Button } from "@/components/ui/button";
 import { shimmer, toBase64 } from "@/lib/image";
 import dayjs from "dayjs";
 
-const BlogCard = () => {
+import { Blog } from "@/types/blog";
+
+interface BlogCardProps {
+  cardData: Blog;
+}
+
+const BlogCard: React.FC<BlogCardProps> = ({ cardData }) => {
+  const { id, image, title, description, createdOn } = cardData;
+
   return (
-    <Card className="max-w-[400px]">
-      <CardHeader>
-        <div className="h-60 rounded-t-xl mb-3">
-          <div className="relative h-[inherit]">
-            <Image
-              placeholder="blur"
-              blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                shimmer(350, 250)
-              )}`}
-              src="https://via.assets.so/img.jpg?w=350&h=250"
-              alt="blog"
-              fill={true}
-              className="rounded-xl object-cover"
-            />
+    <Link href={`/blogs/${id}`}>
+      <Card className="h-full flex flex-col justify-between">
+        <CardHeader className="p-0">
+          <div className="h-60 rounded-t-xl mb-3">
+            <div className="relative h-[inherit]">
+              <Image
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(350, 250)
+                )}`}
+                src={image}
+                alt="blog"
+                fill={true}
+                className="rounded-t-xl object-cover"
+              />
+            </div>
           </div>
+        </CardHeader>
+        <div className="px-4 flex flex-col gap-2 flex-1">
+          <CardTitle className="tracking-normal leading-normal">
+            {title}
+          </CardTitle>
+          <CardDescription>
+            {description.length > 100
+              ? `${description.substring(0, 100)}...`
+              : description}
+          </CardDescription>
         </div>
 
-        <CardTitle className="tracking-normal leading-normal">
-          Case Analysis: Murli S. Deora v. Union of India, (2001) | Health
-          Hazards Linked to Cigarette Smoking
-        </CardTitle>
-        <CardDescription>
-          The case &apos;Murli S. Deora v. Union of India&apos; was a landmark
-          legal proceeding that exerted a considerable influence on the right to
-          life of passive smokers.
-        </CardDescription>
-      </CardHeader>
-      <CardFooter className="flex justify-between">
-        <Link href={`/blogs/test-slug`}>
+        <CardFooter className="flex justify-between px-4 pb-4">
           <Button variant={"link"} className="p-0">
             Read More
           </Button>
-        </Link>
-        <p className="text-gray-400 text-sm">{dayjs().format("MMM D, YYYY")}</p>
-      </CardFooter>
-    </Card>
+          <p className="text-gray-400 text-sm">
+            {dayjs(createdOn).format("MMM D, YYYY")}
+          </p>
+        </CardFooter>
+      </Card>
+    </Link>
   );
 };
 

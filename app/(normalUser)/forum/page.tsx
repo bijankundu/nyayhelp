@@ -3,8 +3,16 @@ import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import ForumCard from "@/components/common/forumCard";
+import { getAllForumQuestions } from "@/api/forums";
+import { Forum } from "@/types/forum";
 
-const Page = () => {
+const Page = async () => {
+  const {
+    data: discussionsData = [],
+  }: {
+    data: Forum[];
+  } = await getAllForumQuestions();
+
   return (
     <section className="py-10 flex flex-col items-center gap-4">
       <div className="flex flex-col items-center gap-4 max-w-[50vw]">
@@ -25,9 +33,9 @@ const Page = () => {
         </div>
 
         <div className="w-full flex flex-col items-center gap-5">
-          {[...Array(6)].map((_, i) => (
-            <div key={i}>
-              <ForumCard />
+          {discussionsData.map((discussion, i) => (
+            <div key={i} className="w-full">
+              <ForumCard cardData={discussion} />
             </div>
           ))}
         </div>

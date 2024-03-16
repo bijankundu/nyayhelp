@@ -104,9 +104,14 @@ const data = [
   },
 ];
 
-export async function GET() {
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const limit = searchParams.get("limit") || 10;
+
+  const trimmedData = data.slice(0, Number(limit));
+
   return NextResponse.json({
     message: "Success",
-    data,
+    data: trimmedData,
   });
 }
