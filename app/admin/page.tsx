@@ -1,7 +1,12 @@
 import React from "react";
+import AddPostEditor from "@/components/admin/addPostEditor";
 
 const Page = () => {
-  return <div>Admin Page</div>;
+  return (
+    <div>
+      <AddPostEditor />
+    </div>
+  );
 };
 
 export default Page;
