@@ -1,5 +1,9 @@
 import React from "react";
-import AddPostEditor from "@/components/admin/addPostEditor";
+import dynamic from "next/dynamic";
+
+const AddPostEditor = dynamic(import("@/components/admin/addPostEditor"), {
+  ssr: false,
+});
 
 const Page = () => {
   return (
