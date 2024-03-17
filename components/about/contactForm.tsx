@@ -22,7 +22,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "../ui/textarea";
 
-const phoneRegex = new RegExp(/^[6-9]\d{9}$/);
+import { phoneRegex } from "@/constants";
 
 const formSchema = z.object({
   firstName: z

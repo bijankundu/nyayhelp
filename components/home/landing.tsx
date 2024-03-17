@@ -26,7 +26,7 @@ const Landing = () => {
         </p>
 
         <div className="w-full flex justify-center">
-          <Link href="/login">
+          <Link href="/blogs">
             <Button size={"lg"}>Explore Blogs</Button>
           </Link>
         </div>

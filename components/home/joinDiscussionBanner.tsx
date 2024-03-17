@@ -16,7 +16,7 @@ const JoinDiscussionBanner = () => {
           </p>
         </div>
         <div className="mx-auto w-full max-w-sm space-y-2">
-          <Link href="#">
+          <Link href="/login">
             <Button size={"lg"}>Join Now</Button>
           </Link>
         </div>
