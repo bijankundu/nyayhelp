@@ -1,73 +1,100 @@
-import React from "react";
+import Image from "next/image";
+
+import TeamCard from "@/components/about/teamCard";
+import ContactForm from "@/components/about/contactForm";
+
+import aboutUsVector from "@/assets/images/about-us.svg";
 
 const Page = () => {
   return (
-    <section className="py-10 flex flex-col items-center gap-4">
-      <div className="flex flex-col items-center gap-10 max-w-[80vw]">
-        <div className="flex flex-col gap-5">
-          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
-            Who are we?
+    <section className="py-10 flex flex-col items-center gap-10">
+      <div className="flex justify-between w-full px-10 items-center">
+        <div className="flex flex-col gap-2 flex-1">
+          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-left">
+            Explore, Analyze, Address <br />
+            <span className="text-4xl">Your Legal Requirements</span>
           </h1>
-
-          <p>
-            (let&apos;s not try to) boil the ocean (here/there/everywhere) value
-            prop we don&apos;t need to boil the ocean here push back, or the
-            right info at the right time to the right people, or 4-blocker, yet
-            thought shower. Talk to the slides anti-pattern. Killing it weâ€™re
-            all in this together, even if our businesses function differently i
-            also believe it&apos;s important for every member to be involved and
-            invested in our company and this is one way to do so closer to the
-            metal, up the flagpole bazooka that run it past the boss jump right
-            in and banzai attack will they won&apos;t they its all greek to me
-            unless they bother until the end of time maybe vis a vis too many
-            cooks over the line. Are there any leftovers in the kitchen? lean
-            into that problem let&apos;s put a pin in that. This is not a video
-            game, this is a meeting! green technology and climate change . Take
-            five, punch the tree, and come back in here with a clear head flesh
-            that out. Screw the pooch core competencies, nor sacred cow. This is
-            not the hill i want to die on increase the pipelines. Make sure to
-            include in your wheelhouse churning anomalies, nor this proposal is
-            a win-win situation which will cause a stellar paradigm shift, and
-            produce a multi-fold increase in deliverables that is a good problem
-            to have, for turd polishing.
+          <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400 text-left">
+            Expand your understanding of your legal matter.
           </p>
         </div>
-        <div className="flex flex-col gap-5">
-          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
-            Why are we doing this?
-          </h1>
-          <p>
-            We need more images of groups of people having non-specific types of
-            fun I want you to take it to the next level we don&apos;t need a
-            contract, do we can you punch up the fun level on these icons you
-            might wanna give it another shot, for can you make it more
-            infographic-y. I need this to work in internet explorer! low
-            resolution? It looks ok on my screen, yet jazz it up a little can
-            you please change the color theme of the website to pink and purple?
-            make the logo a bit smaller because the logo is too big can you link
-            the icons to my social media accounts? oh and please put pictures of
-            cats everywhere, nor low resolution? It looks ok on my screen. I
-            love it, but can you invert all colors?. The flier should feel like
-            a warm handshake we are a startup make it original what is a
-            hamburger menu theres all this spanish text on my site. We are a
-            non-profit organization I want you to take it to the next level, for
-            could you solutionize that for me, so needs to be sleeker this is
-            just a 5 minutes job can it be more retro this was not according to
-            brief. You can get my logo from facebook can you make it pop, so try
-            making it a bit less blah make it look like Apple we are your
-            relatives, yet we need to make the new version clean and sexy. Try
-            making it a bit less blah you might wanna give it another shot, or
-            we have big contacts we will promote you. Use a kpop logo
-            that&apos;s not a kpop logo! ugh i was wondering if my cat could be
-            placed over the logo in the flyer, so make it sexy. I love it, but
-            can you invert all colors? other agencies charge much lesser, yet
-            it&apos;s great, can you add a beard though . We don&apos;t need a
-            backup, it never goes down! can you make the blue bluer?, for could
-            you move it a tad to the left there is too much white space concept
-            is bang on, but can we look at a better execution, and this is just
-            a 5 minutes job.iendis deserunt earum laboriosam asperiores
-            assumenda modi.
-          </p>
+        <div className="h-80 relative flex-1">
+          <Image src={aboutUsVector} alt="about us vector" fill={true} />
+        </div>
+      </div>
+      <div className="mt-10 px-10 flex flex-col gap-2 w-full">
+        <h2 className="text-3xl font-bold text-left">About Us</h2>
+        <div className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-base/relaxed dark:text-gray-400 text-left">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum porro
+          officiis voluptatibus vero, dolorem temporibus culpa officia accusamus
+          quisquam corrupti deleniti enim ducimus dolore quis quae rem quasi
+          impedit sint, illo at eveniet facilis. Explicabo nostrum, dignissimos
+          cupiditate cumque quae similique, sit debitis, error aut tempora ea
+          autem. Perferendis dolor ad autem in, fugiat harum placeat tenetur
+          nobis ipsa sint, voluptatibus, odit aperiam expedita? Non reiciendis
+          nobis saepe ipsum vel dignissimos odit sunt accusantium beatae
+          consectetur? Eaque ipsam eveniet asperiores vel cumque ex quaerat non,
+          reprehenderit recusandae nihil similique obcaecati labore dignissimos
+          in temporibus minus explicabo minima saepe dicta aut molestiae
+          corporis assumenda accusamus iusto? Aliquid nobis dolore ad dolor? Ad
+          ab impedit necessitatibus voluptate, minima non, tempore blanditiis
+          nobis nam totam ducimus odio facere consequatur praesentium quo
+          laborum vitae corrupti! Qui amet necessitatibus officia dolores animi
+          quia explicabo sequi ratione dolor? Facere vel magnam veniam.
+          Voluptates, aliquid doloremque culpa, quaerat sit minima voluptatem
+          officia velit, similique alias molestias reiciendis iure. Accusamus
+          dolore quibusdam atque commodi reiciendis quam fugiat earum. Corporis,
+          quae dignissimos. Aliquid, sit nihil accusamus perspiciatis
+          architecto, reiciendis iure mollitia in, nisi molestias officia est
+          nam incidunt quas dolorem. Porro dolore rem fugit dolorum quasi sunt,
+          cum minus.
+        </div>
+      </div>
+      <div className="mt-5 px-10 flex flex-col gap-2 w-full">
+        <h2 className="text-3xl font-bold text-left">Our Vision</h2>
+        <div className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-base/relaxed dark:text-gray-400 text-left">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum porro
+          officiis voluptatibus vero, dolorem temporibus culpa officia accusamus
+          quisquam corrupti deleniti enim ducimus dolore quis quae rem quasi
+          impedit sint, illo at eveniet facilis. Explicabo nostrum, dignissimos
+          cupiditate cumque quae similique, sit debitis, error aut tempora ea
+          autem. Perferendis dolor ad autem in, fugiat harum placeat tenetur
+          nobis ipsa sint, voluptatibus, odit aperiam expedita? Non reiciendis
+          nobis saepe ipsum vel dignissimos odit sunt accusantium beatae
+          consectetur? Eaque ipsam eveniet asperiores vel cumque ex quaerat non,
+          reprehenderit recusandae nihil similique obcaecati labore dignissimos
+          in temporibus minus explicabo minima saepe dicta aut molestiae
+          corporis assumenda accusamus iusto? Aliquid nobis dolore ad dolor? Ad
+          ab impedit necessitatibus voluptate, minima non, tempore blanditiis
+          nobis nam totam ducimus odio facere consequatur praesentium quo
+          laborum vitae corrupti! Qui amet necessitatibus officia dolores animi
+          quia explicabo sequi ratione dolor? Facere vel magnam veniam.
+          Voluptates, aliquid doloremque culpa, quaerat sit minima voluptatem
+          officia velit, similique alias molestias reiciendis iure. Accusamus
+          dolore quibusdam atque commodi reiciendis quam fugiat earum. Corporis,
+          quae dignissimos. Aliquid, sit nihil accusamus perspiciatis
+          architecto, reiciendis iure mollitia in, nisi molestias officia est
+          nam incidunt quas dolorem. Porro dolore rem fugit dolorum quasi sunt,
+          cum minus.
+        </div>
+      </div>
+      <div className="mt-10 px-10 flex flex-col gap-4 w-full">
+        <h2 className="text-3xl font-bold text-left">Meet the team</h2>
+        <div className="grid grid-cols-4 gap-10">
+          <TeamCard />
+          <TeamCard />
+          <TeamCard />
+          <TeamCard />
+        </div>
+      </div>
+
+      <div className="mt-10 px-10 flex flex-col gap-2 w-full">
+        <h2 className="text-3xl font-bold text-left">Have Queries?</h2>
+        <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-base/relaxed dark:text-gray-400 text-left">
+          No worries! Feel free to contact us
+        </p>
+        <div className="flex mt-5">
+          <ContactForm />
         </div>
       </div>
     </section>
