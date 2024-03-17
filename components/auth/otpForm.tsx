@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -20,7 +20,6 @@ import {
   FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import {
@@ -29,6 +28,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
+import { FormFlowTypes, LoginFormNumber } from "./loginForm";
 
 const FormSchema = z.object({
   pin: z.string().min(6, {
@@ -36,7 +36,12 @@ const FormSchema = z.object({
   }),
 });
 
-const OtpForm = () => {
+interface OtpFormProps {
+  setFormFlow: (formFlow: FormFlowTypes) => void;
+  phoneNumber: LoginFormNumber;
+}
+
+const OtpForm: React.FC<OtpFormProps> = ({ setFormFlow, phoneNumber }) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -55,8 +60,11 @@ const OtpForm = () => {
         <CardDescription className="text-gray-500 dark:text-gray-400 flex gap-2 items-center">
           <p>{`We have sent an OTP to`}</p>
           <div className="flex justify-center items-center gap-1 font-bold">
-            <p>{"+91 9813651213"}</p>
-            <span className="h-[14px] cursor-pointer">
+            <p>{`${phoneNumber.extension} ${phoneNumber.number}`}</p>
+            <span
+              className="h-[14px] cursor-pointer"
+              onClick={() => setFormFlow("numberForm")}
+            >
               <Edit className="h-full w-full" />
             </span>
           </div>

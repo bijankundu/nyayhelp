@@ -1,7 +1,8 @@
 "use client";
 
+import React, { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
@@ -26,8 +27,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import { useToast } from "@/components/ui/use-toast";
 
 import { phoneRegex } from "@/constants";
+import { FormFlowTypes, LoginFormNumber } from "./loginForm";
+
+import { sendOTP } from "@/api/auth";
 
 const FormSchema = z.object({
   phoneNumber: z
@@ -39,14 +44,52 @@ const FormSchema = z.object({
     }),
 });
 
-const NumberForm = () => {
+interface NumberFormProps {
+  setFormFlow: (formFlow: FormFlowTypes) => void;
+  phoneNumber: LoginFormNumber | undefined;
+  setPhoneNumber: (phoneNumber: LoginFormNumber) => void;
+}
+
+const NumberForm: React.FC<NumberFormProps> = ({
+  setFormFlow,
+  phoneNumber,
+  setPhoneNumber,
+}) => {
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
-    defaultValues: { phoneNumber: "" },
+    defaultValues: { phoneNumber: phoneNumber?.number || "" },
   });
 
-  const onSubmit = (data: z.infer<typeof FormSchema>) => {
+  const onSubmit = async (data: z.infer<typeof FormSchema>) => {
+    setLoading(true);
     console.log(data);
+    const { phoneNumber } = data;
+    setPhoneNumber({ extension: "+91", number: phoneNumber });
+    try {
+      const data = await sendOTP({ extension: "+91", number: phoneNumber });
+      console.log(
+        "🚀 ~ file: numberForm.tsx ~ line 61 ~ onSubmit ~ data",
+        data
+      );
+      toast({
+        title: "OTP sent successfully",
+        description: "We have sent an OTP to your phone number",
+      });
+      setFormFlow("otpForm");
+    } catch (error) {
+      console.error(
+        "🚀 ~ file: numberForm.tsx ~ line 61 ~ onSubmit ~ error",
+        error
+      );
+      toast({
+        title: "Failed to send OTP",
+        description: "Please try again",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -92,7 +135,7 @@ const NumberForm = () => {
               )}
             />
 
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full" loading={loading}>
               Login
             </Button>
           </form>

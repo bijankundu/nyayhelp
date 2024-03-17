@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
+import { Toaster } from "@/components/ui/toaster";
 
 import { cn } from "@/lib/utils";
 
@@ -28,6 +29,7 @@ export default function RootLayout({
         className={cn(inter.className, "relative flex flex-col min-h-screen")}
       >
         <Header />
+        <Toaster />
         <main className="md:mt-[9.5vh] bg-gray-[#f1f1f1] w-full">
           {children}
         </main>
