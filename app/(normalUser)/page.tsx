@@ -7,8 +7,8 @@ const Home = () => {
   return (
     <>
       <Landing />
-      {/* <RecentBlogs /> */}
-      {/* <LatestForumDiscussion /> */}
+      <RecentBlogs />
+      <LatestForumDiscussion />
       <JoinDiscussionBanner />
     </>
   );

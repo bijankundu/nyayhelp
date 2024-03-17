@@ -3,7 +3,14 @@ import { Button } from "@/components/ui/button";
 
 import ForumCard from "../common/forumCard";
 
-const LatestForumDiscussion = () => {
+import { getAllForumQuestions } from "@/api/forums";
+
+import { Forum } from "@/types/forum";
+
+const LatestForumDiscussion = async () => {
+  const { data: forumQuestions }: { data: Forum[] } =
+    await getAllForumQuestions({ limit: 3 });
+
   return (
     <section className="py-10 flex flex-col items-center gap-4">
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
@@ -14,9 +21,9 @@ const LatestForumDiscussion = () => {
       </p>
 
       <div className="w-full px-10 flex flex-col items-center gap-10">
-        {[1, 2, 3].map((_, idx) => (
-          <div key={idx} className="max-w-[50vw]">
-            <ForumCard />
+        {forumQuestions.map((forumData) => (
+          <div key={forumData.id} className="max-w-[50vw] w-full">
+            <ForumCard cardData={forumData} />
           </div>
         ))}
       </div>

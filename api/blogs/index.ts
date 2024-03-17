@@ -1,7 +1,7 @@
-const getAllBlogs = async () => {
+const getAllBlogs = async ({ limit = 10 }: { limit?: number } = {}) => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
-  const res = await fetch(`${baseUrl}/api/blogs`);
+  const res = await fetch(`${baseUrl}/api/blogs?limit=${limit}`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }

@@ -12,7 +12,7 @@ const Page = async ({ params }: { params: { blogSlug: string } }) => {
 
   const { data: blogData }: { data: Blog } = await getBlogById(blogSlug);
 
-  const { title, content, createdOn } = blogData;
+  const { title, content, createdOn, image } = blogData;
 
   return (
     <div className="py-10 flex flex-col items-center">
@@ -36,7 +36,7 @@ const Page = async ({ params }: { params: { blogSlug: string } }) => {
                 blurDataURL={`data:image/svg+xml;base64,${toBase64(
                   shimmer(680, 288)
                 )}`}
-                src="https://via.assets.so/img.jpg?w=680&h=288"
+                src={image}
                 alt="blog"
                 fill={true}
                 className="rounded object-cover"
