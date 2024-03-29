@@ -19,10 +19,10 @@ interface BlogCardProps {
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ cardData }) => {
-  const { id, image, title, description, createdOn } = cardData;
+  const { _id, image_url, title, description, createdAt } = cardData;
 
   return (
-    <Link href={`/blogs/${id}`}>
+    <Link href={`/blogs/${_id}`}>
       <Card className="h-full flex flex-col justify-between">
         <CardHeader className="p-0">
           <div className="h-60 rounded-t-xl mb-3">
@@ -32,7 +32,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ cardData }) => {
                 blurDataURL={`data:image/svg+xml;base64,${toBase64(
                   shimmer(350, 250)
                 )}`}
-                src={image}
+                src={image_url}
                 alt="blog"
                 fill={true}
                 className="rounded-t-xl object-cover"
@@ -56,7 +56,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ cardData }) => {
             Read More
           </Button>
           <p className="text-gray-400 text-sm">
-            {dayjs(createdOn).format("MMM D, YYYY")}
+            {dayjs(createdAt).format("MMM D, YYYY")}
           </p>
         </CardFooter>
       </Card>

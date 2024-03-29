@@ -8,7 +8,7 @@ import { getAllBlogs } from "@/api/blogs";
 import { Blog } from "@/types/blog";
 
 const RecentBlogs = async () => {
-  const { data: blogs }: { data: Blog[] } = await getAllBlogs({ limit: 4 });
+  const { blogs }: { blogs: Blog[] } = await getAllBlogs({ limit: 4 });
 
   return (
     <section className="py-10 flex flex-col items-center gap-4">
@@ -20,8 +20,8 @@ const RecentBlogs = async () => {
       </p>
 
       <div className="w-full grid grid-cols-4 gap-10 justify-between px-10">
-        {blogs.map((blogData) => (
-          <div key={blogData.id} className="mx-auto w-full">
+        {blogs.slice(0, 4).map((blogData) => (
+          <div key={blogData._id} className="mx-auto w-full">
             <BlogCard cardData={blogData} />
           </div>
         ))}

@@ -1,8 +1,11 @@
 export interface Blog {
-  id: number;
-  image: string;
+  _id: string;
+  image_url: string;
   title: string;
   content: string;
   description: string;
-  createdOn: string;
+  tag: string;
+  status: boolean;
+  createdAt: Date;
+  updatedAt: Date;
 }

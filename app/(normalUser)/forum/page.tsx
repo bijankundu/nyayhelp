@@ -4,13 +4,13 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import ForumCard from "@/components/common/forumCard";
 import { getAllForumQuestions } from "@/api/forums";
-import { Forum } from "@/types/forum";
+import { Question } from "@/types/question.types";
 
 const Page = async () => {
   const {
-    data: discussionsData = [],
+    question: forumQuestions = [],
   }: {
-    data: Forum[];
+    question: Question[];
   } = await getAllForumQuestions();
 
   return (
@@ -33,9 +33,9 @@ const Page = async () => {
         </div>
 
         <div className="w-full flex flex-col items-center gap-5">
-          {discussionsData.map((discussion, i) => (
-            <div key={i} className="w-full">
-              <ForumCard cardData={discussion} />
+          {forumQuestions.map((forumData) => (
+            <div key={forumData._id} className="w-full">
+              <ForumCard cardData={forumData} />
             </div>
           ))}
         </div>

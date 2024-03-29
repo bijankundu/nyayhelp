@@ -4,22 +4,22 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { MessageSquareText, ThumbsUp, ThumbsDown } from "lucide-react";
 
-import { getQuestionById } from "@/api/forums";
-import { Forum } from "@/types/forum";
+import { Question } from "@/types/question.types";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 dayjs.extend(relativeTime);
 
 interface ForumCardProps {
-  cardData: Forum;
+  cardData: Question;
 }
 
 const ForumCard: React.FC<ForumCardProps> = ({ cardData }) => {
-  const { id, title, description, createdOn } = cardData;
+  const { title, description, _id, createdAt, total_likes, total_comments } =
+    cardData;
 
   return (
-    <Link href={`/forum/${id}`}>
+    <Link href={`/forum/${_id}`}>
       <div className="border rounded-lg p-4">
         <h2 className="text-xl font-bold">{title}</h2>
         <p className="text-gray-600">
@@ -33,20 +33,20 @@ const ForumCard: React.FC<ForumCardProps> = ({ cardData }) => {
               <AvatarImage src="https://i.pravatar.cc/300" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
-            <p>{dayjs(createdOn).fromNow()}</p>
+            <p>{dayjs(createdAt).fromNow()}</p>
           </div>
           <div className="flex gap-5">
             <div className="text-gray-600 flex gap-1 text-sm items-center">
               <ThumbsUp size={"18px"} />
-              <span>30</span>
+              <span>{total_likes}</span>
             </div>
-            <div className="text-gray-600 flex gap-1 text-sm items-center">
+            {/* <div className="text-gray-600 flex gap-1 text-sm items-center">
               <ThumbsDown size={"18px"} />
               <span>20</span>
-            </div>
+            </div> */}
             <div className="text-gray-600 flex gap-1 text-sm items-center">
               <MessageSquareText size={"18px"} />
-              <span>13</span>
+              <span>{total_comments}</span>
             </div>
           </div>
         </div>

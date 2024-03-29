@@ -5,10 +5,10 @@ import ForumCard from "../common/forumCard";
 
 import { getAllForumQuestions } from "@/api/forums";
 
-import { Forum } from "@/types/forum";
+import { Question } from "@/types/question.types";
 
 const LatestForumDiscussion = async () => {
-  const { data: forumQuestions }: { data: Forum[] } =
+  const { question: forumQuestions }: { question: Question[] } =
     await getAllForumQuestions({ limit: 3 });
 
   return (
@@ -21,8 +21,8 @@ const LatestForumDiscussion = async () => {
       </p>
 
       <div className="w-full px-10 flex flex-col items-center gap-10">
-        {forumQuestions.map((forumData) => (
-          <div key={forumData.id} className="max-w-[50vw] w-full">
+        {forumQuestions.slice(0, 3).map((forumData) => (
+          <div key={forumData._id} className="max-w-[50vw] w-full">
             <ForumCard cardData={forumData} />
           </div>
         ))}

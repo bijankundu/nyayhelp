@@ -8,7 +8,7 @@ import AnswerContainer from "@/components/forum/answerContainer";
 import { formatDate } from "@/lib/utils";
 
 import { getQuestionById } from "@/api/forums";
-import { Forum } from "@/types/forum";
+import { Question } from "@/types/question.types";
 
 const AddAnswerContainer = dynamic(
   () => import("@/components/forum/addAnswerContainer"),
@@ -21,12 +21,12 @@ const Page = async ({ params }: { params: { discussionSlug: string } }) => {
   const { discussionSlug } = params;
 
   const {
-    data: questionData,
+    question: questionData,
   }: {
-    data: Forum;
+    question: Question;
   } = await getQuestionById(discussionSlug);
 
-  const { title, description, createdOn } = questionData;
+  const { title, description, createdAt } = questionData;
 
   return (
     <div className="py-10 flex flex-col items-center">
@@ -75,7 +75,7 @@ const Page = async ({ params }: { params: { discussionSlug: string } }) => {
                     Posted by <span className="text-primary">John Doe</span>
                   </p>
                   <p className="text-xs text-gray-500">
-                    {formatDate(createdOn)}
+                    {formatDate(createdAt)}
                   </p>
                 </div>
               </div>

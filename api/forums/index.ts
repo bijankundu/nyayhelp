@@ -1,9 +1,9 @@
+const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL;
+
 const getAllForumQuestions = async ({
   limit = 10,
 }: { limit?: number } = {}) => {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-
-  const res = await fetch(`${baseUrl}/api/forums?limit=${limit}`);
+  const res = await fetch(`${apiBaseUrl}/question`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -11,9 +11,7 @@ const getAllForumQuestions = async ({
 };
 
 const getQuestionById = async (id: string) => {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-
-  const res = await fetch(`${baseUrl}/api/forums/${id}`);
+  const res = await fetch(`${apiBaseUrl}/question/${id}`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");

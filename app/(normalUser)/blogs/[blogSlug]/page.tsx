@@ -10,9 +10,9 @@ import { Blog } from "@/types/blog";
 const Page = async ({ params }: { params: { blogSlug: string } }) => {
   const { blogSlug } = params;
 
-  const { data: blogData }: { data: Blog } = await getBlogById(blogSlug);
+  const { blog: blogData }: { blog: Blog } = await getBlogById(blogSlug);
 
-  const { title, content, createdOn, image } = blogData;
+  const { title, content, createdAt, image_url } = blogData;
 
   return (
     <div className="py-10 flex flex-col items-center">
@@ -24,7 +24,7 @@ const Page = async ({ params }: { params: { blogSlug: string } }) => {
           <div className="flex gap-2 items-center text-gray-500 ">
             <Calendar size={"20px"} />
             <p className="text-sm/relaxed dark:text-gray-400 text-left">
-              {`Published on ${dayjs(createdOn).format("MMM D, YYYY")}`}
+              {`Published on ${dayjs(createdAt).format("MMM D, YYYY")}`}
             </p>
           </div>
         </section>
@@ -36,7 +36,7 @@ const Page = async ({ params }: { params: { blogSlug: string } }) => {
                 blurDataURL={`data:image/svg+xml;base64,${toBase64(
                   shimmer(680, 288)
                 )}`}
-                src={image}
+                src={image_url}
                 alt="blog"
                 fill={true}
                 className="rounded object-cover"
