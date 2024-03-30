@@ -1,4 +1,6 @@
-import AddBlogForm from "@/components/admin/addBlogForm";
+import dynamic from "next/dynamic";
+
+const AddBlogForm = dynamic(() => import("@/components/admin/addBlogForm"));
 
 const Page = () => {
   return (
