@@ -40,17 +40,23 @@ const Header = (
         />
       </Link>
 
-      {!isAdmin && (
-        <div className="flex gap-8 items-center ">
-          <NavItem href="/forum">Forum</NavItem>
-          <NavItem href="/blogs">Blogs</NavItem>
-          <NavItem href="/about">About</NavItem>
-          <NavItem href="/new-question">Add question</NavItem>
-          <NavItem href="/login">
-            <Button>Login</Button>
-          </NavItem>
-        </div>
-      )}
+      <div className="flex gap-8 items-center">
+        {isAdmin ? (
+          <>
+            <NavItem href="/admin/add-blog">Create New Blog</NavItem>
+          </>
+        ) : (
+          <>
+            <NavItem href="/forum">Forum</NavItem>
+            <NavItem href="/blogs">Blogs</NavItem>
+            <NavItem href="/about">About</NavItem>
+            <NavItem href="/new-question">Add question</NavItem>
+            <NavItem href="/login">
+              <Button>Login</Button>
+            </NavItem>
+          </>
+        )}
+      </div>
     </nav>
   );
 };

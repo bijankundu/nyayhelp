@@ -5,8 +5,6 @@ import Quill, { Quill as QuillType } from "quill";
 import { cn } from "@/lib/utils";
 import "quill/dist/quill.snow.css";
 
-import "@/styles/editor.css";
-
 interface IEditorProps {
   onChange: (content: string) => void;
   value: string;
@@ -35,13 +33,7 @@ const Editor: FC<IEditorProps> = ({ onChange, value, containerClassNames }) => {
       });
 
       quillRef.current.on("text-change", () => {
-        console.log({
-          html: quillRef.current?.root.innerHTML,
-          text: quillRef.current?.getText(),
-          content: quillRef.current?.root.innerHTML,
-        });
-
-        onChange(quillRef?.current?.root.innerHTML || "");
+        onChange(quillRef.current?.root.innerHTML || "");
       });
     }
 
