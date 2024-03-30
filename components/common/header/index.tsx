@@ -45,6 +45,7 @@ const Header = (
           <NavItem href="/forum">Forum</NavItem>
           <NavItem href="/blogs">Blogs</NavItem>
           <NavItem href="/about">About</NavItem>
+          <NavItem href="/new-question">Add question</NavItem>
           <NavItem href="/login">
             <Button>Login</Button>
           </NavItem>
