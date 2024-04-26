@@ -22,7 +22,7 @@ const AnswerBox = () => {
       </div>
       <div className="flex flex-col">
         <div className="flex flex-col gap-4">
-          <p className="text-base tracking-tight text-gray-700">
+          <p className="text-sm md:text-base tracking-tight text-gray-700">
             Per year, that seems like 10% of what South Korea is now paying,
             while the US troop levels are somewhat similar (tens of thousands)
             in both countries. Is the German payment figure really cumulative
@@ -40,12 +40,12 @@ const AnswerBox = () => {
 
           <div className="flex justify-end items-center">
             <div className="flex gap-2 items-center text-sm text-gray-500">
-              <Avatar className="h-8 w-8">
+              <Avatar className="h-6 w-6 md:h-8 md:w-8">
                 <AvatarImage src="https://i.pravatar.cc/300" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               <div>
-                <p>
+                <p className="text-xs md:text-base">
                   Answered by <span className="text-primary">John Doe</span>
                 </p>
                 <p className="text-xs text-gray-500">

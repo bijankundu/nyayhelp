@@ -30,7 +30,7 @@ const Page = async ({ params }: { params: { discussionSlug: string } }) => {
 
   return (
     <div className="py-10 flex flex-col items-center">
-      <div className="max-w-[60vw] w-[55vw] flex flex-col gap-4">
+      <div className="w-[90vw] md:max-w-[60vw] md:w-[55vw] flex flex-col gap-4">
         <section className="flex gap-5 pb-5 border-b">
           <div className="flex flex-col items-center justify-center">
             <div className="flex flex-col gap-4">
@@ -46,14 +46,14 @@ const Page = async ({ params }: { params: { discussionSlug: string } }) => {
             </div>
           </div>
           <div className="flex flex-col gap-4 flex-1">
-            <h4 className="scroll-m-20 text-xl font-extrabold tracking-tight lg:text-2xl text-left w-full">
+            <h4 className="scroll-m-20 md:text-xl font-extrabold tracking-tight lg:text-2xl text-left w-full">
               {title}
             </h4>
-            <p className="text-base tracking-tight text-gray-700">
+            <p className="text-sm md:text-base tracking-tight text-gray-700">
               {description}
             </p>
 
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-4">
               <div className="flex gap-2">
                 <Badge variant="secondary" className="font-medium bg-blue-100">
                   Tag 1
@@ -66,12 +66,12 @@ const Page = async ({ params }: { params: { discussionSlug: string } }) => {
                 </Badge>
               </div>
               <div className="flex gap-2 items-center text-sm text-gray-500">
-                <Avatar className="h-8 w-8">
+                <Avatar className="h-6 w-6 md:h-8 md:w-8">
                   <AvatarImage src="https://i.pravatar.cc/300" />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <div>
-                  <p>
+                  <p className="text-xs md:text-base">
                     Posted by <span className="text-primary">John Doe</span>
                   </p>
                   <p className="text-xs text-gray-500">
@@ -85,7 +85,7 @@ const Page = async ({ params }: { params: { discussionSlug: string } }) => {
 
         <section>
           <div className="flex justify-between items-center">
-            <h5 className="scroll-m-20 text-xl font-medium tracking-tight lg:text-xl text-left w-full">
+            <h5 className="scroll-m-20 md:text-xl font-medium tracking-tight lg:text-xl text-left w-full">
               3 Answers
             </h5>
           </div>

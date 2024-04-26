@@ -1,62 +1,69 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { Button } from "@/components/ui/button";
+import DesktopHeader from "@/components/common/header/desktopHeader";
+import MobileHeader from "@/components/common/header/mobileHeader";
 
-const NavItem = ({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) => {
-  return (
-    <Link
-      href={href}
-      className="text-md font-medium text-gray-900 hover:text-gray-600"
-    >
-      {children}
-    </Link>
-  );
-};
+import { INavItem } from "@/types/nav";
 
 interface IHeaderProps {
   isAdmin?: boolean;
 }
 
+const navItemsList: {
+  adminRoutes: INavItem[];
+  publicRoutes: INavItem[];
+} = {
+  adminRoutes: [
+    {
+      title: "Create New Blog",
+      href: "/admin/add-blog",
+    },
+  ],
+  publicRoutes: [
+    {
+      title: "Forum",
+      href: "/forum",
+    },
+    {
+      title: "Blogs",
+      href: "/blogs",
+    },
+    {
+      title: "About",
+      href: "/about",
+    },
+    {
+      title: "Add question",
+      href: "/new-question",
+    },
+  ],
+};
+
 const Header = (
   { isAdmin = false }: Readonly<IHeaderProps> = { isAdmin: false }
 ) => {
   return (
-    <nav className="flex gap-10 md:gap-6 justify-between items-center py-10 px-10 h-[8vh] fixed top-0 z-50 w-full backdrop-blur-xl bg-white/60 drop-shadow-lg">
+    <nav className="flex gap-10 md:gap-6 justify-between items-center px-6 md:py-10 md:px-10 h-[9.7vh] fixed top-0 z-50 w-full backdrop-blur-xl bg-white/60 drop-shadow-lg">
       <Link href="/" className="flex items-center space-x-2">
         <Image
           src={
             "https://cdn.pixelbin.io/v2/small-queen-10eece/erase.bg()/Screenshot_2023-08-27_at_1_56_53_AM.png"
           }
-          alt="VoyagersTribe"
+          alt="NyayHelp Logo"
           width={80}
           height={60}
         />
       </Link>
 
-      <div className="flex gap-8 items-center">
-        {isAdmin ? (
-          <>
-            <NavItem href="/admin/add-blog">Create New Blog</NavItem>
-          </>
-        ) : (
-          <>
-            <NavItem href="/forum">Forum</NavItem>
-            <NavItem href="/blogs">Blogs</NavItem>
-            <NavItem href="/about">About</NavItem>
-            <NavItem href="/new-question">Add question</NavItem>
-            <NavItem href="/login">
-              <Button>Login</Button>
-            </NavItem>
-          </>
-        )}
-      </div>
+      <>
+        <div className="hidden md:block">
+          <DesktopHeader isAdmin={isAdmin} routeList={navItemsList} />
+        </div>
+        <div className="md:hidden">
+          <MobileHeader isAdmin={isAdmin} routeList={navItemsList} />
+        </div>
+      </>
     </nav>
   );
 };

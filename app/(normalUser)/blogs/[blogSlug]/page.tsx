@@ -16,9 +16,9 @@ const Page = async ({ params }: { params: { blogSlug: string } }) => {
 
   return (
     <div className="py-10 flex flex-col items-center">
-      <div className="max-w-[680px] flex flex-col gap-4">
-        <section className="">
-          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-3xl text-left">
+      <div className="px-6 md:px-auto md:max-w-[680px] flex flex-col gap-4">
+        <section className="flex flex-col gap-2">
+          <h1 className="scroll-m-20 text-xl md:text-2xl font-extrabold tracking-tight lg:text-3xl text-left">
             {title}
           </h1>
           <div className="flex gap-2 items-center text-gray-500 ">

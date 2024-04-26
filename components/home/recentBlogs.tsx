@@ -12,14 +12,16 @@ const RecentBlogs = async () => {
 
   return (
     <section className="py-10 flex flex-col items-center gap-4">
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
-        Recent Blog Posts
-      </h1>
-      <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400 text-center">
-        Read our latest blog posts.
-      </p>
+      <div className="flex flex-col items-center gap-2 md:gap-4">
+        <h1 className="scroll-m-20 text-2xl md:text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
+          Recent Blog Posts
+        </h1>
+        <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400 text-center">
+          Read our latest blog posts.
+        </p>
+      </div>
 
-      <div className="w-full grid grid-cols-4 gap-10 justify-between px-10">
+      <div className="w-full grid md:grid-cols-2 lg:grid-cols-4 gap-10 justify-between px-6 md:px-10">
         {blogs.slice(0, 4).map((blogData) => (
           <div key={blogData._id} className="mx-auto w-full">
             <BlogCard cardData={blogData} />
