@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { LogOut, User } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -57,16 +58,20 @@ const DesktopUserMenu: React.FC<IDesktopUserMenuProps> = async ({
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <User className="h-4 w-4 mr-2" />
-            <span>Profile</span>
-          </DropdownMenuItem>
+          <Link href={`/user/${userName}`}>
+            <DropdownMenuItem>
+              <User className="h-4 w-4 mr-2" />
+              <span>Profile</span>
+            </DropdownMenuItem>
+          </Link>
         </DropdownMenuGroup>
         {/* <DropdownMenuSeparator /> */}
-        <DropdownMenuItem>
-          <LogOut className="h-4 w-4 mr-2" />
-          <span>Log out</span>
-        </DropdownMenuItem>
+        <Link href={`/logout`}>
+          <DropdownMenuItem>
+            <LogOut className="h-4 w-4 mr-2" />
+            <span>Log out</span>
+          </DropdownMenuItem>
+        </Link>
       </DropdownMenuContent>
     </DropdownMenu>
   );

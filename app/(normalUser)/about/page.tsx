@@ -7,22 +7,24 @@ import aboutUsVector from "@/assets/images/about-us.svg";
 
 const Page = () => {
   return (
-    <section className="py-10 flex flex-col items-center gap-10">
-      <div className="flex justify-between w-full px-10 items-center">
-        <div className="flex flex-col gap-2 flex-1">
-          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-left">
+    <section className="py-6 md:py-10 flex flex-col items-center gap-10">
+      <div className="flex justify-between w-full px-6 md:px-10 items-center flex-col lg:flex-row md:gap-2 gap-5">
+        <div className="flex flex-col gap-2 lg:flex-1">
+          <h1 className="scroll-m-20 text-2xl md:text-4xl font-extrabold tracking-tight lg:text-5xl text-left">
             Explore, Analyze, Address <br />
-            <span className="text-4xl">Your Legal Requirements</span>
+            <span className="text-2xl md:text-4xl">
+              Your Legal Requirements
+            </span>
           </h1>
           <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400 text-left">
             Expand your understanding of your legal matter.
           </p>
         </div>
-        <div className="h-80 relative flex-1">
+        <div className="lg:h-80 h-48 w-[90vw] lg:w-auto relative lg:flex-1">
           <Image src={aboutUsVector} alt="about us vector" fill={true} />
         </div>
       </div>
-      <div className="mt-10 px-10 flex flex-col gap-2 w-full">
+      <div className="mt-10 px-6 md:px-10 flex flex-col gap-2 w-full">
         <h2 className="text-3xl font-bold text-left">About Us</h2>
         <div className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-base/relaxed dark:text-gray-400 text-left">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum porro
@@ -50,7 +52,7 @@ const Page = () => {
           cum minus.
         </div>
       </div>
-      <div className="mt-5 px-10 flex flex-col gap-2 w-full">
+      <div className="mt-5 px-6 md:px-10 flex flex-col gap-2 w-full">
         <h2 className="text-3xl font-bold text-left">Our Vision</h2>
         <div className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-base/relaxed dark:text-gray-400 text-left">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum porro
@@ -78,9 +80,9 @@ const Page = () => {
           cum minus.
         </div>
       </div>
-      <div className="mt-10 px-10 flex flex-col gap-4 w-full">
+      <div className="mt-10 px-6 md:px-10 flex flex-col gap-4 w-full">
         <h2 className="text-3xl font-bold text-left">Meet the team</h2>
-        <div className="grid grid-cols-4 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           <TeamCard />
           <TeamCard />
           <TeamCard />
@@ -88,7 +90,7 @@ const Page = () => {
         </div>
       </div>
 
-      <div className="mt-10 px-10 flex flex-col gap-2 w-full">
+      <div className="mt-10 px-6 md:px-10 flex flex-col gap-2 w-full">
         <h2 className="text-3xl font-bold text-left">Have Queries?</h2>
         <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-base/relaxed dark:text-gray-400 text-left">
           No worries! Feel free to contact us

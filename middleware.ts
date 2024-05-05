@@ -21,6 +21,8 @@ export default async function middleware(request: NextRequest) {
   // Get the pathname of the request (e.g. /, /about, /blog/first-post)
   const path = url.pathname;
 
+  const isUserRoute = path.startsWith("/profile");
+
   const isAdminRoute = path.startsWith("/admin");
   const cookies = request.cookies;
   const authCookie = (cookies.get("x-user")?.value || "") as string;
@@ -32,6 +34,10 @@ export default async function middleware(request: NextRequest) {
     } else if (!(await checkIsAdmin(authCookie))) {
       return NextResponse.redirect(new URL("/", url.origin));
     }
+  }
+
+  if (isUserRoute && !isAuthenticated) {
+    return NextResponse.redirect(new URL("/login", url.origin));
   }
 
   const redirects: {
