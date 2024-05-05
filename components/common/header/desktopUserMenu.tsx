@@ -58,7 +58,7 @@ const DesktopUserMenu: React.FC<IDesktopUserMenuProps> = async ({
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <Link href={`/user/${userName}`}>
+          <Link href={`/profile`}>
             <DropdownMenuItem>
               <User className="h-4 w-4 mr-2" />
               <span>Profile</span>
