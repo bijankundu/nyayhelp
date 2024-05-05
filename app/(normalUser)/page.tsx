@@ -3,7 +3,7 @@ import JoinDiscussionBanner from "@/components/home/joinDiscussionBanner";
 import RecentBlogs from "@/components/home/recentBlogs";
 import LatestForumDiscussion from "@/components/home/latestForumDiscussion";
 
-const Home = () => {
+const Page = () => {
   return (
     <>
       <Landing />
@@ -14,4 +14,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Page;

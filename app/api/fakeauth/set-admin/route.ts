@@ -12,9 +12,9 @@ export async function GET() {
     name: faker.person.fullName(),
     user_name: faker.internet.userName(),
     email: faker.internet.email(),
-    phoneNumber: faker.helpers.fromRegExp(/^[6-9]\d{9}$/),
-    age: 30,
-    gender: faker.helpers.arrayElement(["MALE", "FEMALE"]),
+    phoneNumber: faker.helpers.fromRegExp(/[6-9][0-9]{9}/),
+    age: faker.number.int({ min: 18, max: 40 }),
+    gender: faker.person.sex().toUpperCase(),
     status: "ACTIVE",
     role: "ADMIN",
   };
