@@ -4,9 +4,12 @@ export interface INavItem {
 }
 
 export interface IHeaderProps {
+  isAuthenticated: boolean;
+  authCookie?: string;
   isAdmin?: boolean;
   routeList: {
     adminRoutes: INavItem[];
     publicRoutes: INavItem[];
+    protectedRoutes?: INavItem[];
   };
 }

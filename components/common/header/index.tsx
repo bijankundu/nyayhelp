@@ -4,6 +4,8 @@ import Image from "next/image";
 import DesktopHeader from "@/components/common/header/desktopHeader";
 import MobileHeader from "@/components/common/header/mobileHeader";
 
+import { checkIsAuthenticated } from "@/helpers";
+
 import { INavItem } from "@/types/nav";
 
 interface IHeaderProps {
@@ -13,6 +15,7 @@ interface IHeaderProps {
 const navItemsList: {
   adminRoutes: INavItem[];
   publicRoutes: INavItem[];
+  protectedRoutes?: INavItem[];
 } = {
   adminRoutes: [
     {
@@ -38,11 +41,23 @@ const navItemsList: {
       href: "/new-question",
     },
   ],
+  protectedRoutes: [
+    {
+      title: "Profile",
+      href: "/profile",
+    },
+    {
+      title: "Logout",
+      href: "/logout",
+    },
+  ],
 };
 
-const Header = (
+const Header = async (
   { isAdmin = false }: Readonly<IHeaderProps> = { isAdmin: false }
 ) => {
+  const { isAuthenticated, authCookie = "" } = checkIsAuthenticated();
+
   return (
     <nav className="flex gap-10 md:gap-6 justify-between items-center px-6 md:py-10 md:px-10 h-[9.7vh] fixed top-0 z-50 w-full backdrop-blur-xl bg-white/60 drop-shadow-lg">
       <Link href="/" className="flex items-center space-x-2">
@@ -58,10 +73,20 @@ const Header = (
 
       <>
         <div className="hidden md:block">
-          <DesktopHeader isAdmin={isAdmin} routeList={navItemsList} />
+          <DesktopHeader
+            isAdmin={isAdmin}
+            routeList={navItemsList}
+            isAuthenticated={isAuthenticated}
+            authCookie={authCookie as string}
+          />
         </div>
         <div className="md:hidden">
-          <MobileHeader isAdmin={isAdmin} routeList={navItemsList} />
+          <MobileHeader
+            isAdmin={isAdmin}
+            routeList={navItemsList}
+            isAuthenticated={isAuthenticated}
+            authCookie={authCookie as string}
+          />
         </div>
       </>
     </nav>

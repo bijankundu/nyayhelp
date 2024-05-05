@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+import { checkIsAdmin } from "@/helpers";
+
 export const config = {
   matcher: [
     /*
@@ -13,17 +15,30 @@ export const config = {
   ],
 };
 
-export default async function middleware(req: NextRequest) {
-  const url = req.nextUrl;
+export default async function middleware(request: NextRequest) {
+  const url = request.nextUrl;
 
   // Get the pathname of the request (e.g. /, /about, /blog/first-post)
   const path = url.pathname;
+
+  const isAdminRoute = path.startsWith("/admin");
+  const cookies = request.cookies;
+  const authCookie = (cookies.get("x-user")?.value || "") as string;
+  const isAuthenticated = !!authCookie;
+
+  if (isAdminRoute) {
+    if (!isAuthenticated) {
+      return NextResponse.redirect(new URL("/login", url.origin));
+    } else if (!(await checkIsAdmin(authCookie))) {
+      return NextResponse.redirect(new URL("/", url.origin));
+    }
+  }
 
   const redirects: {
     [key: string]: string;
   } = {};
 
   if (path in redirects) {
-    return NextResponse.redirect(new URL(redirects[path], req.url));
+    return NextResponse.redirect(new URL(redirects[path], request.url));
   }
 }

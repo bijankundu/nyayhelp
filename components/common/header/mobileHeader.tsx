@@ -12,17 +12,26 @@ import {
 } from "@/components/ui/sheet";
 import NavItem from "@/components/common/header/navItem";
 import { Button } from "@/components/ui/button";
+import MobileBottomSheetFooter from "@/components/common/header/mobileBottomSheetFooter";
 
 import { IHeaderProps } from "@/types/nav";
 
 interface IMobileHeaderProps extends IHeaderProps {}
 
 const MobileHeader = (
-  { isAdmin = false, routeList }: IMobileHeaderProps = {
+  {
+    isAuthenticated,
+    authCookie,
+    isAdmin = false,
+    routeList,
+  }: IMobileHeaderProps = {
+    isAuthenticated: false,
+    authCookie: "",
     isAdmin: false,
     routeList: {
       adminRoutes: [],
       publicRoutes: [],
+      protectedRoutes: [],
     },
   }
 ) => {
@@ -33,7 +42,7 @@ const MobileHeader = (
           <Menu />
         </SheetTrigger>
       </div>
-      <SheetContent side={"left"}>
+      <SheetContent side={"left"} className="justify-between flex flex-col">
         <SheetHeader>
           <SheetTitle>
             <Link href="/" className="flex items-center space-x-2">
@@ -60,16 +69,30 @@ const MobileHeader = (
                       </NavItem>
                     </SheetClose>
                   ))}
-                  <SheetClose asChild>
-                    <NavItem href="/login">
-                      <Button>Login</Button>
-                    </NavItem>
-                  </SheetClose>
+                  {isAuthenticated &&
+                    routeList.protectedRoutes &&
+                    routeList.protectedRoutes.map((route) => (
+                      <SheetClose key={route.href} asChild>
+                        <NavItem key={route.href} href={route.href}>
+                          {route.title}
+                        </NavItem>
+                      </SheetClose>
+                    ))}
+                  {!isAuthenticated && (
+                    <SheetClose asChild>
+                      <NavItem href="/login">
+                        <Button>Login</Button>
+                      </NavItem>
+                    </SheetClose>
+                  )}
                 </>
               }
             </div>
           </SheetDescription>
         </SheetHeader>
+        {isAuthenticated && (
+          <MobileBottomSheetFooter authCookie={authCookie as string} />
+        )}
       </SheetContent>
     </Sheet>
   );

@@ -1,12 +1,20 @@
 import { Button } from "@/components/ui/button";
 import NavItem from "@/components/common/header/navItem";
+import DesktopUserMenu from "@/components/common/header/desktopUserMenu";
 
 import { IHeaderProps } from "@/types/nav";
 
 interface IDesktopHeaderProps extends IHeaderProps {}
 
 const DesktopHeader = (
-  { isAdmin = false, routeList }: IDesktopHeaderProps = {
+  {
+    isAuthenticated,
+    authCookie = "",
+    isAdmin = false,
+    routeList,
+  }: IDesktopHeaderProps = {
+    isAuthenticated: false,
+    authCookie: "",
     isAdmin: false,
     routeList: {
       adminRoutes: [],
@@ -32,9 +40,13 @@ const DesktopHeader = (
               {route.title}
             </NavItem>
           ))}
-          <NavItem href="/login">
-            <Button>Login</Button>
-          </NavItem>
+          {!isAuthenticated ? (
+            <NavItem href="/login">
+              <Button>Login</Button>
+            </NavItem>
+          ) : (
+            <DesktopUserMenu authCookie={authCookie} />
+          )}
         </>
       }
     </div>

@@ -10,7 +10,7 @@ export async function GET() {
 
   const dummyUser = {
     name: faker.person.fullName(),
-    user_name: faker.internet.userName(),
+    userName: faker.internet.userName(),
     email: faker.internet.email(),
     phoneNumber: faker.helpers.fromRegExp(/[6-9][0-9]{9}/),
     age: faker.number.int({ min: 18, max: 40 }),
